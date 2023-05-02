@@ -1,0 +1,38 @@
+name: .NET Build
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "Source/**"
+      - "!Source/Node/**"
+      - "!Source/Workbench/**"
+  pull_request:
+    branches:
+      - "**"
+    paths:
+      - "Source/**"
+      - "!Source/Node/**"
+      - "!Source/Workbench/**"
+
+jobs:
+  dotnet-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .Net
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "6.0.400"
+
+      - name: Build & run tests for root
+        run: dotnet test --configuration Release
+
+      - name: Build & run tests for bank sample
+        working-directory: ./Samples/Banking/Bank
+        run: dotnet test --configuration Release
+

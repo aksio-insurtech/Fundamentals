@@ -1,0 +1,25 @@
+{
+    "private": true,
+    "workspaces": [
+        "Source/**/*",
+        "DocFX/**/*",
+        "Samples/**/*"
+    ],
+    "scripts": {
+        "clean": "node ./run-task-on-workspaces.js clean",
+        "build": "node ./run-task-on-workspaces.js build",
+        "lint": "node ./run-task-on-workspaces.js lint",
+        "test": "node ./run-task-on-workspaces.js test",
+        "ci": "node ./run-task-on-workspaces.js ci",
+        "publish-version": "node ./run-task-on-workspaces.js publish-version $*",
+        "up": "node ./run-task-on-workspaces.js up"
+    },
+    "devDependencies": {
+        "edit-json-file": "1.7.0",
+        "glob": "8.0.3",
+        "module-alias": "2.2.2",
+        "npm-check-updates": "16.0.5"
+    },
+    "license": "MIT",
+    "version": "0.0.0"
+}
