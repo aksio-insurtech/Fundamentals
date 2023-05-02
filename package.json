@@ -1,9 +1,7 @@
 {
     "private": true,
     "workspaces": [
-        "Source/**/*",
-        "DocFX/**/*",
-        "Samples/**/*"
+        "Source/**/*"
     ],
     "scripts": {
         "g:clean": "cd $INIT_CWD && tsc -b --clean",
