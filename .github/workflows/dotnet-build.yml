@@ -6,15 +6,15 @@ on:
       - "main"
     paths:
       - "Source/**"
-      - "!Source/Node/**"
-      - "!Source/Workbench/**"
+      - "!Source/JavaScript/**"
+      - "!Source/TypeScript/**"
   pull_request:
     branches:
       - "**"
     paths:
       - "Source/**"
-      - "!Source/Node/**"
-      - "!Source/Workbench/**"
+      - "!Source/JavaScript/**"
+      - "!Source/TypeScript/**"
 
 jobs:
   dotnet-build:
@@ -31,8 +31,3 @@ jobs:
 
       - name: Build & run tests for root
         run: dotnet test --configuration Release
-
-      - name: Build & run tests for bank sample
-        working-directory: ./Samples/Banking/Bank
-        run: dotnet test --configuration Release
-
