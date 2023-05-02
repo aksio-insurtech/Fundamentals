@@ -6,6 +6,13 @@
         "Samples/**/*"
     ],
     "scripts": {
+        "g:clean": "cd $INIT_CWD && tsc -b --clean",
+        "g:build": "cd $INIT_CWD && tsc -b",
+        "g:lint": "cd $INIT_CWD && eslint --cache . --ext .ts,.tsx --quiet --fix",
+        "g:lint:ci": "cd $INIT_CWD && eslint --cache . --ext .ts,.tsx --quiet",
+        "g:test": "cd $INIT_CWD && env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha",
+        "g:ci": "cd $INIT_CWD && yarn clean && yarn lint:ci && yarn test && yarn build",
+        "g:up": "cd $INIT_CWD && ncu -u \\!'@aksio/*'",
         "clean": "node ./run-task-on-workspaces.js clean",
         "build": "node ./run-task-on-workspaces.js build",
         "lint": "node ./run-task-on-workspaces.js lint",
@@ -14,11 +21,37 @@
         "publish-version": "node ./run-task-on-workspaces.js publish-version $*",
         "up": "node ./run-task-on-workspaces.js up"
     },
+    "dependencies": {
+        "reflect-metadata": "0.1.13"
+    },
     "devDependencies": {
+        "@types/chai": "4.3.4",
+        "@types/chai-as-promised": "7.1.5",
+        "@types/mocha": "10.0.1",
+        "@types/node": "18.16.3",
+        "@types/sinon": "10.0.13",
+        "@types/sinon-chai": "3.2.9",
+        "@typescript-eslint/eslint-plugin": "5.47.1",
+        "@typescript-eslint/parser": "5.47.1",
+        "chai": "4.3.7",
+        "chai-as-promised": "7.1.1",
         "edit-json-file": "1.7.0",
+        "eslint": "8.30.0",
+        "eslint-config-prettier": "8.5.0",
+        "eslint-plugin-header": "3.1.1",
+        "eslint-plugin-import": "2.26.0",
+        "eslint-plugin-no-null": "1.0.2",
+        "eslint-plugin-prettier": "4.2.1",
+        "eslint-plugin-react": "7.31.11",
         "glob": "8.0.3",
+        "mocha": "10.2.0",
         "module-alias": "2.2.2",
-        "npm-check-updates": "16.0.5"
+        "npm-check-updates": "16.0.5",
+        "prettier": "2.4.1",
+        "sinon": "15.0.1",
+        "sinon-chai": "3.7.0",
+        "ts-node": "10.9.1",
+        "typescript": "4.9.4"
     },
     "license": "MIT",
     "version": "0.0.0"
