@@ -8,7 +8,7 @@
         "g:build": "cd $INIT_CWD && tsc -b",
         "g:lint": "cd $INIT_CWD && eslint --cache . --ext .ts,.tsx --quiet --fix",
         "g:lint:ci": "cd $INIT_CWD && eslint --cache . --ext .ts,.tsx --quiet",
-        "g:test": "cd $INIT_CWD && env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha",
+        "g:test": "cd $INIT_CWD && env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha --config ${PROJECT_CWD}/.mocharc.js",
         "g:ci": "cd $INIT_CWD && yarn clean && yarn lint:ci && yarn test && yarn build",
         "g:up": "cd $INIT_CWD && ncu -u \\!'@aksio/*'",
         "clean": "node ./run-task-on-workspaces.js clean",
