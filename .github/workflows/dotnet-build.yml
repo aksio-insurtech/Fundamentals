@@ -21,15 +21,11 @@ on:
       - "main"
     paths:
       - "Source/DotNET/**"
-      - "!Source/JavaScript/**"
-      - "!Source/TypeScript/**"
   pull_request:
     branches:
       - "**"
     paths:
       - "Source/DotNET/**"
-      - "!Source/JavaScript/**"
-      - "!Source/TypeScript/**"
 
 jobs:
   dotnet-build:
