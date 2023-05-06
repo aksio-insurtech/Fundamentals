@@ -28,7 +28,7 @@ on:
       - "Source/JavaScript/**"
 
 jobs:
-  node-build:
+  build:
     runs-on: ubuntu-latest
 
     steps:
