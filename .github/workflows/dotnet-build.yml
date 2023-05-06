@@ -28,7 +28,7 @@ on:
       - "Source/DotNET/**"
 
 jobs:
-  dotnet-build:
+  build:
     runs-on: ubuntu-latest
 
     steps:
