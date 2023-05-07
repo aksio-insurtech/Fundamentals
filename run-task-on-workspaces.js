@@ -84,6 +84,7 @@ for (const workspaceName in workspaces) {
         if (task === 'publish-version') {
             if (args.length === 1) {
                 const version = args[0];
+                file.set('version', version);
                 updateDependencyVersionsFromLocalWorkspaces(file, packageJson, version);
                 file.save();
 
@@ -94,7 +95,7 @@ for (const workspaceName in workspaces) {
                 }
 
                 console.log(`Publishing workspace '${workspaceName}' at '${workspaceRelativeLocation}'`);
-                const result = spawn('yarn', ["npm", 'publish', '--verbose', '--no-git-tag-version', '--new-version', version], { cwd: workspaceAbsoluteLocation });
+                const result = spawn('yarn', ["npm", 'publish'], { cwd: workspaceAbsoluteLocation });
                 console.log(result.stdout.toString());
                 if (result.status !== 0) {
                     process.exit(1);
