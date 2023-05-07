@@ -95,7 +95,7 @@ for (const workspaceName in workspaces) {
                 }
 
                 console.log(`Publishing workspace '${workspaceName}' at '${workspaceRelativeLocation}'`);
-                const result = spawn('yarn', ["npm", 'publish'], { cwd: workspaceAbsoluteLocation });
+                const result = spawn('yarn', ["npm", 'publish','--otp','$NODE_AUTH_TOKEN'], { cwd: workspaceAbsoluteLocation });
                 console.log(result.stdout.toString());
                 if (result.status !== 0) {
                     process.exit(1);
