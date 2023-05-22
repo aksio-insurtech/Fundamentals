@@ -19,5 +19,3 @@ public class when_finding_known_object_by_key : Specification
 
     [Fact] void should_return_correct_item() => result.ShouldEqual(items.ToArray()[1]);
 }
-
-

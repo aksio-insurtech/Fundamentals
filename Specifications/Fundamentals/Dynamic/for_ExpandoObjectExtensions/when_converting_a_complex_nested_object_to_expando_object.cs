@@ -16,18 +16,18 @@ public class when_converting_a_complex_nested_object_to_expando_object : Specifi
         String = "Forty Two",
         Array = new[]
         {
-                new { Element = 0 },
-                new { Element = 1 }
-            },
+            new { Element = 0 },
+            new { Element = 1 }
+        },
         Nested = new
         {
             Integer = 43,
             String = "Forty Three",
             Array = new[]
             {
-                    new { Element = 2 },
-                    new { Element = 3 }
-                },
+                new { Element = 2 },
+                new { Element = 3 }
+            },
         }
     }.AsExpandoObject();
 

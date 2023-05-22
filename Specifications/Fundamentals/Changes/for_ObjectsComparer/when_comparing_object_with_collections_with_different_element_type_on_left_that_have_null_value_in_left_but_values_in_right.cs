@@ -18,7 +18,7 @@ public class when_comparing_object_with_collections_with_different_element_type_
 
     void Establish()
     {
-        left = new(new object[] { (string)null! });
+        left = new(new object[] { null! });
         right = new(new string[] { "1" });
     }
 

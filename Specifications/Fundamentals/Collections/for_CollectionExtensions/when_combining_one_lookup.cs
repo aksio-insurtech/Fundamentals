@@ -12,12 +12,12 @@ public class when_combining_one_lookup : Specification
     {
         lookups = new[]
         {
-                new[]
-                {
-                    new { K = "1", V = 1 },
-                    new { K = "2", V = 2 },
-                }.ToLookup(a => a.K, a => a.V)
-            };
+            new[]
+            {
+                new { K = "1", V = 1 },
+                new { K = "2", V = 2 },
+            }.ToLookup(a => a.K, a => a.V)
+        };
     }
 
     void Because() => result = lookups.Combine();

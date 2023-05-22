@@ -8,10 +8,10 @@ public class when_walking_enumerable_with_for_each : Specification
     IEnumerable<string> enumerable;
     string[] actual_enumerable = new[]
     {
-            "first",
-            "second",
-            "third"
-        };
+        "first",
+        "second",
+        "third"
+    };
 
     List<string> result = new();
 

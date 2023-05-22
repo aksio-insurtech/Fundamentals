@@ -22,22 +22,22 @@ public class when_ensuring_complex_path_with_multiple_arrays : Specification
             {
                 second_level = new[]
                 {
-                        new
+                    new
+                    {
+                        identifier = "first",
+                        third_level = new
                         {
-                            identifier = "first",
-                            third_level = new
+                            forth_level = new[]
                             {
-                                forth_level = new[]
+                                new
                                 {
-                                    new
-                                    {
-                                        identifier = "second",
-                                        fifth_level = 42
-                                    }
+                                    identifier = "second",
+                                    fifth_level = 42
                                 }
                             }
                         }
                     }
+                }
             }
         }.AsExpandoObject();
         property_path = new("first_level.[second_level].third_level.[forth_level].fifth_level");

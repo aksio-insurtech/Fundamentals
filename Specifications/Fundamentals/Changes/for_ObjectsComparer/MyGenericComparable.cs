@@ -9,5 +9,5 @@ public class MyGenericComparable : IComparable<MyGenericComparable>
 
     public MyGenericComparable(int desiredResult) => _desiredResult = desiredResult;
 
-    public int CompareTo(MyGenericComparable obj) => _desiredResult;
+    public int CompareTo(MyGenericComparable other) => _desiredResult;
 }

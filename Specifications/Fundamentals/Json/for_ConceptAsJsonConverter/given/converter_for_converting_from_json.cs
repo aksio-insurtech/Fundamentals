@@ -24,8 +24,7 @@ public abstract class converter_for_converting_from_json<TConcept, TUnderlying> 
 
     void Because()
     {
-        var input = FormattedInput;
-        var fullJson = $"{{ \"prop\": {input} }}";
+        var fullJson = $"{{ \"prop\": {FormattedInput} }}";
 
         Utf8JsonReader reader = new(Encoding.UTF8.GetBytes(fullJson).AsSpan());
         reader.Read();  // Start object

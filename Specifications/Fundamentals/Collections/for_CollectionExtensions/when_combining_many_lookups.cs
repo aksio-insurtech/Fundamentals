@@ -12,29 +12,29 @@ public class when_combining_many_lookups : Specification
     {
         lookups = new[]
         {
-                new[]
-                {
-                    new { K = "1", V = 1 },
-                    new { K = "2", V = 2 },
-                    new { K = "2", V = 22 },
-                    new { K = "3", V = 3 },
-                }.ToLookup(a => a.K, a => a.V),
-                new[]
-                {
-                    new { K = "1", V = 1 },
-                    new { K = "2", V = 2 },
-                }.ToLookup(a => a.K, a => a.V),
-                new[]
-                {
-                    new { K = "2", V = 2 },
-                    new { K = "3", V = 333 },
-                }.ToLookup(a => a.K, a => a.V),
-                new[]
-                {
-                    new { K = "", V = 88 },
-                    new { K = "4", V = 444 },
-                }.ToLookup(a => a.K, a => a.V),
-            };
+            new[]
+            {
+                new { K = "1", V = 1 },
+                new { K = "2", V = 2 },
+                new { K = "2", V = 22 },
+                new { K = "3", V = 3 },
+            }.ToLookup(a => a.K, a => a.V),
+            new[]
+            {
+                new { K = "1", V = 1 },
+                new { K = "2", V = 2 },
+            }.ToLookup(a => a.K, a => a.V),
+            new[]
+            {
+                new { K = "2", V = 2 },
+                new { K = "3", V = 333 },
+            }.ToLookup(a => a.K, a => a.V),
+            new[]
+            {
+                new { K = "", V = 88 },
+                new { K = "4", V = 444 },
+            }.ToLookup(a => a.K, a => a.V),
+        };
     }
 
     void Because() => result = lookups.Combine();

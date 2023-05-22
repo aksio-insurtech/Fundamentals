@@ -19,5 +19,3 @@ public class when_checking_if_contains_known_object_by_key : Specification
 
     [Fact] void should_contain_the_object() => result.ShouldBeTrue();
 }
-
-
