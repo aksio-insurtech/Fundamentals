@@ -4,7 +4,7 @@
 using System.Globalization;
 using System.Runtime.CompilerServices;
 
-namespace Aksio.Cratis;
+namespace Aksio;
 
 public static class CultureSetup
 {
@@ -13,6 +13,5 @@ public static class CultureSetup
     {
         CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
         CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
-
     }
 }

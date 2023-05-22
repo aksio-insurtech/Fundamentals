@@ -12,8 +12,8 @@
         <Authors>all contributors</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <RepositoryUrl>https://github.com/aksio-insurtech/Cratis</RepositoryUrl>
-        <PackageProjectUrl>https://github.com/aksio-insurtech/Cratis</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/aksio-insurtech/Fundamentals</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/aksio-insurtech/Fundamentals</PackageProjectUrl>
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     </PropertyGroup>
 

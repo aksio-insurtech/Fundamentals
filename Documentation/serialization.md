@@ -38,7 +38,7 @@ The problem with this approach is that when persisting this to a database you're
 even move your code to another namespace. Some serializers offer a way to define a discriminator which could be a string, or a unique identifier
 identifying it that does not couple oneself to the name.
 
-In Cratis, we have taken the latter approach, but made it a consistent approach independent of the serializers.
+In the Aksio Fundamentals, we have taken the latter approach, but made it a consistent approach independent of the serializers.
 
 Lets say you have an interface like below:
 
@@ -161,7 +161,6 @@ export class CreditAccount {
 
 ### Client
 
-In the `@aksio/cratis-fundamentals` package you'll find something called `JsonSerializer`.
+In the `@aksio/fundamentals` package you'll find something called `JsonSerializer`.
 This is used by the `QueryFor<>` client type. Anything that is coming from the server will go through this serializer
 and create a result that holds the correct types.
-
