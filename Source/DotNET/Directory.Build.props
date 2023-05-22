@@ -9,7 +9,7 @@
         <Copyright>Copyright Aksio Insurtech</Copyright>
         <Authors>all contributors</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageReadmeFile>$(MSBuildThisFileDirectory)../README.md</PackageReadmeFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/aksio-insurtech/Fundamentals</RepositoryUrl>
         <PackageProjectUrl>https://github.com/aksio-insurtech/Fundamentals</PackageProjectUrl>
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="$(MSBuildThisFileDirectory)../README.md" Pack="true" PackagePath="/"/>
+        <None Include="$(MSBuildThisFileDirectory)../../README.md" Pack="true" PackagePath="/"/>
         <Compile Include="$(MSBuildThisFileDirectory)/GlobalAssemblyInfo.cs"/>
     </ItemGroup>
 </Project>
