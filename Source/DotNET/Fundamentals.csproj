@@ -9,12 +9,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="$(MicrosoftExtensions)" />
-      <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="$(MicrosoftExtensions)" />
-      <PackageReference Include="NJsonSchema" Version="$(NJsonSchema)"/>
-      <PackageReference Include="System.IO.FileSystem.Primitives" Version="4.3.0"/>
-      <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftJson)"/>
-      <PackageReference Include="System.Reactive" Version="$(SystemReactive)" />
-      <PackageReference Include="Humanizer" Version="$(Humanizer)" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection"  />
+      <PackageReference Include="Microsoft.Extensions.DependencyModel"  />
+      <PackageReference Include="NJsonSchema" />
+      <PackageReference Include="System.IO.FileSystem.Primitives" />
+      <PackageReference Include="System.Reactive" />
+      <PackageReference Include="Humanizer" />
     </ItemGroup>
 </Project>
