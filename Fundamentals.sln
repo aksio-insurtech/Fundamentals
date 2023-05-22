@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{B767D860-0EFF-4931-8F89-1F84145ECF56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fundamentals", "Source\DotNET\Fundamentals.csproj", "{83E6AC5C-4F7C-4261-9898-DB72F3F9100A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fundamentals", "Source\DotNET\Fundamentals\Fundamentals.csproj", "{83E6AC5C-4F7C-4261-9898-DB72F3F9100A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fundamentals", "Specifications\Fundamentals.csproj", "{B6145456-0F67-4BF1-85B5-E03A7F67FE37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fundamentals", "Specifications\Fundamentals\Fundamentals.csproj", "{B6145456-0F67-4BF1-85B5-E03A7F67FE37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
