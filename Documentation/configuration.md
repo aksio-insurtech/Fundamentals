@@ -1,7 +1,7 @@
 # Configuration
 
 With [.NET](https://docs.microsoft.com/en-us/dotnet/core/extensions/configuration) you get a way to create configuration and source it from multiple locations quite easily.
-Cratis fundamentals provide a thin wrapper on top of this to provide an approach making it more oriented around
+Fundamentals provide a thin wrapper on top of this to provide an approach making it more oriented around
 the configuration object type, rather than just the `IOptions<>` pattern. It also provides mechanisms around value resolutions.
 All configuration objects gets registered automatically as singleton with the service collection.
 
@@ -40,7 +40,7 @@ Add a JSON file called `myconfig.json` at the root of your project that correspo
 
 The filename it will use for looking for the file is by default the name of the C# type lower cased and with `.json` as file extension.
 
-> Note: If you're using the Cratis Application Model, it will automatically be configured for you and you can therefor skip the configuration part.
+> Note: If you're using the Aksio Application Model, it will automatically be configured for you and you can therefor skip the configuration part.
 
 The system uses type discovery to automatically register all configuration objects and leverages the [types system](./types.md) found in Fundamentals as well.
 
@@ -202,7 +202,7 @@ It is possible to create a hierarchy for configuration as well. This can then be
 and properties recursively on it or any types within it can then also be adorned with the `[Configuration]` attribute.
 This will automatically then hook up all configuration objects into the service collection and can be used as dependencies directly.
 
-An example of this is the [Cratis Kernel configuration object](../../Source/Kernel/Configuration/Shared/KernelConfiguration.cs).
+An example of this is the [Cratis Kernel configuration object](https://github.com/aksio-insurtech/Cratis/blob/main/Source/Kernel/Common/Configuration/KernelConfiguration.cs).
 
 ```csharp
 [Configuration("cratis")]
@@ -277,7 +277,7 @@ public class MyConfig
 Using the configuration object depends on the lifecycle of the type that needs it. Internally it leverages the [execution context](./execution-context.md)
 to resolve to the current tenant.
 
-> Note: Cratis will use the search paths and look for a file that matches the tenantId + filename of the config.
+> Note: The configuration system will use the search paths and look for a file that matches the tenantId + filename of the config.
 > As an example for the default development tenant: `config/3352d47d-c154-4457-b3fb-8a2efb725113/myconfig.json`.
 
 If the type is typically a transient type and has a short lifecycle bound to something like a web request (e.g. API Controller), you

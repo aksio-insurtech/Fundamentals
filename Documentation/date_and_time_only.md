@@ -2,7 +2,7 @@
 
 In .NET 6 there were two types introduced called `DateOnly` and `TimeOnly`.
 These are unfortunately not fully supported in serializers and typically type conversion for use with
-Web APIs. Cratis offers serializers and type converters for this which are automatically hooked up
+Web APIs. Fundamentals offers serializers and type converters for this which are automatically hooked up
 in the application model.
 
 ## System.Text.Json converters
@@ -57,7 +57,7 @@ var json = "{ \"registeredDate\": \"2022-08-19\", \"registeredTime\": \"13:37:00
 var person = JsonSerializer.Deserialize<Person>(json, options);
 ```
 
-> Note: If you're using the Cratis Application Model, you do not have to configure this. It is automatically configured for the ASP.NET pipelines
+> Note: If you're using the Aksio Application Model, you do not have to configure this. It is automatically configured for the ASP.NET pipelines
 > and other parts that needs it, such as the Cratis Kernel transports.
 
 ## Type Converters
@@ -83,7 +83,7 @@ using Aksio.Conversion;
 TypeConverters.Register();
 ```
 
-> Note: If you're using the Cratis Application Model, you do not have to manually set this up. It is automatically configured at startup.
+> Note: If you're using the Aksio Application Model, you do not have to manually set this up. It is automatically configured at startup.
 
 ## MongoDB
 
@@ -103,4 +103,4 @@ BsonSerializer.RegisterSerializationProvider(new DateOnlySerializer());
 BsonSerializer.RegisterSerializationProvider(new TimeOnlySerializer());
 ```
 
-> Note: If you're using the Cratis Application Model, you do not have to manually set this up. It is automatically configured at startup.
+> Note: If you're using the Aksio Application Model, you do not have to manually set this up. It is automatically configured at startup.

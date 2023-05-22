@@ -179,7 +179,7 @@ var json = "{ \"SocialSecurityNumber\": \"12345678901\" }";
 var person = JsonSerializer.Deserialize<Person>(json, options);
 ```
 
-> Note: If you're using the Cratis Application Model, you do not have to configure this. It is automatically configured for the ASP.NET pipelines
+> Note: If you're using the Aksio Application Model, you do not have to configure this. It is automatically configured for the ASP.NET pipelines
 > and other parts that needs it, such as the Cratis Kernel transports.
 
 ## TypeConverters
@@ -207,7 +207,7 @@ var types = new Types();
 types.RegisterTypeConvertersForConcepts();
 ```
 
-> Note: If you're using the Cratis Application Model, you do not have to manually set this up. It is automatically configured at startup.
+> Note: If you're using the Aksio Application Model, you do not have to manually set this up. It is automatically configured at startup.
 
 ## MongoDB
 
@@ -226,4 +226,4 @@ using MongoDB.Bson.Serialization;
 BsonSerializer.RegisterSerializationProvider(new ConceptSerializationProvider());
 ```
 
-> Note: If you're using the Cratis Application Model, you do not have to manually set this up. It is automatically configured at startup.
+> Note: If you're using the Aksio Application Model, you do not have to manually set this up. It is automatically configured at startup.

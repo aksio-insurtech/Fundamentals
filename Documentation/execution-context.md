@@ -28,7 +28,6 @@ performing it. The `TenantId` property is retrieved from an HTTP header - `Tenan
 it will assume the `Development` tenant.
 
 > Note: Development tenant is a default tenant with a well known identifier (`3352d47d-c154-4457-b3fb-8a2efb725113`).
-> When creating a new microservice > using the Cratis templates, it configures this tenant as the default in the configuration.
 
 If you're working on a multi tenant solution and you want to set the tenant identifier, you can use extensions to your
 browser, such as [ModHeader](https://modheader.com/). For APIs, you simply add the HTTP header in the tool you're using.
