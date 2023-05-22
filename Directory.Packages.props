@@ -4,6 +4,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageVersion Include="Aksio.Defaults" Version="1.6.7" />
+		<PackageVersion Include="Aksio.Defaults.Specs" Version="1.6.7" />
 		<PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
 		<PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="6.0.0" />
 		<PackageVersion Include="NJsonSchema" Version="10.8.0" />

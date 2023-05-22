@@ -22,8 +22,7 @@ public abstract class converter_for_converting_to_json<TConcept, TUnderlying> : 
         converter = new();
 
         input = (TConcept)typeof(TConcept)
-                    .GetConstructors()
-                    .First()
+                    .GetConstructors()[0]
                     .Invoke(new object[] { Expected });
         stream = new();
         writer = new(stream);

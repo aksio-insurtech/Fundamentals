@@ -22,22 +22,22 @@ public class and_it_is_within_a_complex_structure_with_multiple_arrays : Specifi
             {
                 second_level = new[]
                 {
-                        new
+                    new
+                    {
+                        identifier = "first",
+                        third_level = new
                         {
-                            identifier = "first",
-                            third_level = new
+                            forth_level = new[]
                             {
-                                forth_level = new[]
+                                new
                                 {
-                                    new
-                                    {
-                                        identifier = "second",
-                                        fifth_level = 42
-                                    }
+                                    identifier = "second",
+                                    fifth_level = 42
                                 }
                             }
                         }
                     }
+                }
             }
         }.AsExpandoObject();
         property_path = new("first_level.[second_level].third_level.[forth_level].fifth_level");

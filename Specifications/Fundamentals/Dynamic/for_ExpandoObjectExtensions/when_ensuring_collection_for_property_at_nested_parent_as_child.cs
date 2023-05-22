@@ -26,10 +26,11 @@ public class when_ensuring_collection_for_property_at_nested_parent_as_child : S
         ((IDictionary<string, object>)otherParentAsChild)[parentIdentifierProperty] = "2d025d4a-e579-40d4-889a-fc4fb7cd6016";
         parentAsChild = new();
         ((IDictionary<string, object>)parentAsChild)[parentIdentifierProperty] = parent_key;
-        ((dynamic)root).firstCollection = new ExpandoObject[] {
-                otherParentAsChild,
-                parentAsChild
-            };
+        ((dynamic)root).firstCollection = new ExpandoObject[]
+        {
+            otherParentAsChild,
+            parentAsChild
+        };
     }
 
     void Because() => result = root.EnsureCollection<ExpandoObject>(property, new ArrayIndexers(new[] { new ArrayIndexer($"[{first_collection_property}]", parentIdentifierProperty, parent_key) }));

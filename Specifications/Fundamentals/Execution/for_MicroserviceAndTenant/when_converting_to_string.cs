@@ -14,4 +14,3 @@ public class when_converting_to_string : Specification
 
     [Fact] void should_combine_correctly() => result.ShouldEqual($"{input.MicroserviceId}+{input.TenantId}");
 }
-
