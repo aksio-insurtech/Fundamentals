@@ -10,6 +10,16 @@
 [![.NET Build](https://github.com/aksio-insurtech/Fundamentals/actions/workflows/dotnet-build.yml/badge.svg)](https://github.com/aksio-insurtech/Fundamentals/actions/workflows/dotnet-build.yml)
 [![JavaScript Build](https://github.com/aksio-insurtech/Fundamentals/actions/workflows/javascript-build.yml/badge.svg)](https://github.com/aksio-insurtech/Fundamentals/actions/workflows/javascript-build.yml)
 
+## Description
+
+The Aksio fundamentals holds generic reusable helpers, utilities and tools that aims at solving common problems and help developers be more productive.
+Fundamentals offers functionality for .NET and JavaScript environments. It is not a goal to have parity, as the different environments offer different
+building blocks.
+
+You should look at it as a convenience layer on top of the existing base environment you're running in.
+
+Read more about how to use it in our documentation.
+
 ## Central Package Management
 
 This repository leverages [Central Package Management](https://learn.microsoft.com/en-us/nuget/consume-packages/Central-Package-Management), which
