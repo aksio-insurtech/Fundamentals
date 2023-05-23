@@ -3,7 +3,7 @@
 ## Packages / Deployables
 
 [![Nuget](https://img.shields.io/nuget/v/Aksio.Fundamentals?logo=nuget)](http://nuget.org/packages/aksio.fundamentals)
-[![NPM](https://img.shields.io/npm/v/@aksio/fundamentals?label=@aksio/fundaentals&logo=npm)](https://www.npmjs.com/package/@aksio/fundamentals)
+[![NPM](https://img.shields.io/npm/v/@aksio/fundamentals?label=@aksio/fundamentals&logo=npm)](https://www.npmjs.com/package/@aksio/fundamentals)
 
 ## Builds
 
