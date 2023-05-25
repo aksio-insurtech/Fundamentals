@@ -88,10 +88,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
       - name: Setup node v16
         uses: actions/setup-node@v3
         env:
@@ -100,18 +96,6 @@ jobs:
         with:
           node-version: 16.x
           registry-url: "https://registry.npmjs.org"
-
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-            **/.eslintcache
-            **/yarn.lock
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
 
       - name: Yarn install
         run: yarn
