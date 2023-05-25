@@ -105,8 +105,6 @@ jobs:
             **/node_modules
             **/.eslintcache
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
   
       - name: Yarn install
         run: yarn
