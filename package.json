@@ -19,9 +19,6 @@
         "publish-version": "node ./run-task-on-workspaces.js publish-version $*",
         "up": "node ./run-task-on-workspaces.js up"
     },
-    "dependencies": {
-        "reflect-metadata": "0.1.13"
-    },
     "devDependencies": {
         "@types/chai": "4.3.4",
         "@types/chai-as-promised": "7.1.5",

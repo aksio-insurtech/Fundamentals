@@ -8,7 +8,7 @@
         "access": "public"
     },
     "files": [
-        "dist",
+        "dist/**/*",
         "**/*.ts"
     ],
     "type": "module",
