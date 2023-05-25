@@ -12,7 +12,7 @@
         "strict": true,
         "allowJs": false,
         "checkJs": false,
-        "module": "esnext",
+        "module": "ES2020",
         "moduleResolution": "node",
         "noEmit": false,
         "pretty": true,
