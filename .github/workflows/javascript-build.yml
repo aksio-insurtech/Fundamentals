@@ -37,9 +37,6 @@ jobs:
           node-version: 16.x
           registry-url: "https://registry.npmjs.org"
 
-      - name: Yarn install
-        run: yarn
-
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -55,6 +52,9 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/package.json') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
+      - name: Yarn install
+        run: yarn
 
       - name: Build JS/TS
         run: |
