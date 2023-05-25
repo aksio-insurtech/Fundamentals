@@ -7,6 +7,10 @@
     "publishConfig": {
         "access": "public"
     },
+    "type": "module",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "typings": "dist/esm/index.d.ts",
     "scripts": {
         "prepublish": "yarn g:build",
         "clean": "yarn g:clean",
