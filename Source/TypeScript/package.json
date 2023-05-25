@@ -7,6 +7,10 @@
     "publishConfig": {
         "access": "public"
     },
+    "files": [
+        "dist/**/*",
+        "**/*.ts"
+    ],
     "type": "module",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",

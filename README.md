@@ -34,7 +34,9 @@ setting up common settings that are applied cross cuttingly.
 
 ### Top level package.json
 
-All dependencies are defined in the top level `package.json`. This is to be consistent on versioning of the packages in this repository.
+All developer dependencies are defined in the top level `package.json`. The reason for this is to be able to provide global scripts
+for every package to use for easier maintenance.
+
 The `package.json` found at the top level contains scripts that can then be used in a child project for this to work properly.
 
 In a package, all you need to do is to define the scripts to use the global scripts in the `package.json´ of that project:
