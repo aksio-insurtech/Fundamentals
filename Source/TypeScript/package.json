@@ -4,6 +4,7 @@
     "description": "",
     "author": "Aksio Insurtech",
     "license": "MIT",
+    "repository":"github:aksio-insurtech/fundamentals",
     "publishConfig": {
         "access": "public"
     },
