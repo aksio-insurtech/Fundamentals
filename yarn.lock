@@ -9,12 +9,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aksio/fundamentals@workspace:Source/JavaScript"
   dependencies:
-    "@aksio/typescript": 1.0.0
+    "@aksio/typescript": 1.0.5-test2
     reflect-metadata: 0.1.13
   languageName: unknown
   linkType: soft
 
-"@aksio/typescript@1.0.0, @aksio/typescript@workspace:Source/TypeScript":
+"@aksio/typescript@1.0.5-test2, @aksio/typescript@workspace:Source/TypeScript":
   version: 0.0.0-use.local
   resolution: "@aksio/typescript@workspace:Source/TypeScript"
   dependencies:
