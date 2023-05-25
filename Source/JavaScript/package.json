@@ -1,6 +1,6 @@
 {
     "name": "@aksio/fundamentals",
-    "version": "1.0.0",
+    "version": "1.0.5-test2",
     "description": "",
     "author": "Aksio Insurtech",
     "license": "MIT",
@@ -28,7 +28,7 @@
         }
     },
     "scripts": {
-        "prepublish": "yarn g:build",
+        "prepare": "yarn g:build",
         "clean": "yarn g:clean",
         "build": "yarn g:build",
         "lint": "yarn g:lint",
@@ -38,7 +38,7 @@
         "up": "yarn g:up"
     },
     "dependencies": {
-        "@aksio/typescript": "1.0.0",
+        "@aksio/typescript": "1.0.5-test2",
         "reflect-metadata": "0.1.13"
     }
 }
