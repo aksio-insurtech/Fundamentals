@@ -1,6 +1,6 @@
 {
     "name": "@aksio/typescript",
-    "version": "1.0.0",
+    "version": "1.0.5-test2",
     "description": "",
     "author": "Aksio Insurtech",
     "license": "MIT",
@@ -16,7 +16,7 @@
     "module": "dist/esm/index.js",
     "typings": "dist/esm/index.d.ts",
     "scripts": {
-        "prepublish": "yarn g:build",
+        "prepare": "yarn g:build",
         "clean": "yarn g:clean",
         "build": "yarn g:build",
         "lint": "yarn g:lint",
