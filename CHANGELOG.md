@@ -1,3 +1,11 @@
+# [v1.0.11] - 2023-5-30 [PR: #1](https://github.com/aksio-insurtech/Fundamentals/pull/1)
+
+### Added
+
+- Added a `DefinedTypes` property for `ICanProvideAssembliesForDiscovery` and implemented for the different providers.
+
+
+
 # [v1.0.10] - 2023-5-30 [PR: #0]()
 
 No release notes
