@@ -2,7 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using System.Reflection;
-using Microsoft.Extensions.DependencyModel;
 
 namespace Aksio.Types;
 
@@ -11,25 +10,6 @@ namespace Aksio.Types;
 /// </summary>
 public class Types : ITypes
 {
-    static readonly List<string> _assemblyPrefixesToExclude = new()
-    {
-        "System",
-        "Microsoft",
-        "Newtonsoft",
-        "runtimepack",
-        "mscorlib",
-        "netstandard",
-        "WindowsBase",
-        "Namotion",
-        "Semver",
-        "Humanizer"
-    };
-
-    readonly List<string> _assemblyPrefixesToInclude = new()
-    {
-        "Aksio"
-    };
-
     readonly IContractToImplementorsMap _contractToImplementorsMap = new ContractToImplementorsMap();
     readonly List<Assembly> _assemblies = new();
 
@@ -37,27 +17,32 @@ public class Types : ITypes
     public IEnumerable<Assembly> Assemblies => _assemblies;
 
     /// <inheritdoc/>
-    public IEnumerable<Assembly> ProjectReferencedAssemblies { get; private set; } = Array.Empty<Assembly>();
-
-    /// <inheritdoc/>
     public IEnumerable<Type> All { get; }
 
     /// <summary>
     /// Initializes a new instance of <see cref="Types"/>.
     /// </summary>
-    /// <param name="assemblyPrefixesToInclude">Optional params of assembly prefixes to include in type discovery.</param>
-    public Types(params string[] assemblyPrefixesToInclude)
+    /// <remarks>
+    /// This will automatically set up <see cref="Types"/> using the <see cref="ProjectReferencedAssemblies"/> and <see cref="PackageReferencedAssemblies"/> providers.
+    /// </remarks>
+    public Types()
+        : this(new ICanProvideAssembliesForDiscovery[] {
+            ProjectReferencedAssemblies.Instance,
+            PackageReferencedAssemblies.Instance })
     {
-        _assemblyPrefixesToInclude.AddRange(assemblyPrefixesToInclude);
-        All = DiscoverAllTypes();
-        _contractToImplementorsMap.Feed(All);
     }
 
     /// <summary>
-    /// Add an assembly prefix to exclude from type discovery.
+    /// Initializes a new instance of <see cref="Types"/>.
     /// </summary>
-    /// <param name="prefixes">Prefixes to add.</param>
-    public static void AddAssemblyPrefixesToExclude(params string[] prefixes) => _assemblyPrefixesToExclude.AddRange(prefixes);
+    /// <param name="assemblyProviders">Collection of assembly providers.</param>
+    public Types(IEnumerable<ICanProvideAssembliesForDiscovery> assemblyProviders)
+    {
+        var assemblies = assemblyProviders.SelectMany(_ => _.Assemblies).Distinct();
+        _assemblies.AddRange(assemblies);
+        All = DiscoverAllTypes();
+        _contractToImplementorsMap.Feed(All);
+    }
 
     /// <inheritdoc/>
     public Type FindSingle<T>() => FindSingle(typeof(T));
@@ -103,66 +88,11 @@ public class Types : ITypes
 
     IEnumerable<Type> DiscoverAllTypes()
     {
-        var entryAssembly = Assembly.GetEntryAssembly();
-        var dependencyModel = DependencyContext.Load(entryAssembly);
-        var projectReferencedAssemblies = dependencyModel.RuntimeLibraries
-                            .Where(_ => _.Type.Equals("project"))
-                            .Select(_ => ResolveAssembly(_.Name))
-                            .Where(_ => _ is not null)
-                            .Distinct()
-                            .ToArray();
-        _assemblies.AddRange(projectReferencedAssemblies);
-        ProjectReferencedAssemblies = projectReferencedAssemblies;
-
-        var assemblies = dependencyModel.RuntimeLibraries
-                            .Where(_ => _.RuntimeAssemblyGroups.Count > 0 &&
-                                        (_assemblyPrefixesToInclude.Any(asm => _.Name.StartsWith(asm)) ||
-                                        !_assemblyPrefixesToExclude.Any(asm => _.Name.StartsWith(asm))))
-                            .Select(_ => ResolveAssembly(_.Name))
-                            .Where(_ => _ is not null)
-                            .Distinct()
-                            .ToArray();
-        _assemblies.AddRange(assemblies.Where(_ => !projectReferencedAssemblies.Any(p => p == _)).Select(_ => _));
-
-        AppDomain.CurrentDomain.AssemblyResolve += (s, e) => ResolveAssemblyFromFile(e.Name);
-
         var types = new List<Type>();
         foreach (var assembly in _assemblies)
         {
             types.AddRange(assembly.DefinedTypes);
         }
         return types;
-    }
-
-    Assembly ResolveAssembly(string name)
-    {
-        try
-        {
-            return Assembly.Load(name);
-        }
-        catch
-        {
-            return null!;
-        }
-    }
-
-    Assembly ResolveAssemblyFromFile(string name)
-    {
-        try
-        {
-            var assemblyName = new AssemblyName(name);
-            var file = $"{assemblyName.Name}.dll";
-            var path = Path.Join(AppDomain.CurrentDomain.BaseDirectory, file);
-            if (File.Exists(path))
-            {
-                return Assembly.LoadFile(path);
-            }
-
-            return null!;
-        }
-        catch
-        {
-            return null!;
-        }
     }
 }

@@ -16,11 +16,6 @@ public interface ITypes
     IEnumerable<Assembly> Assemblies { get; }
 
     /// <summary>
-    /// Gets all the assemblies referenced as a project reference.
-    /// </summary>
-    IEnumerable<Assembly> ProjectReferencedAssemblies { get; }
-
-    /// <summary>
     /// Gets returns all collected types.
     /// </summary>
     IEnumerable<Type> All { get; }
