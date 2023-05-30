@@ -42,6 +42,9 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
 
     readonly List<Assembly> _assemblies = new();
 
+    /// <inheritdoc/>
+    public IEnumerable<Assembly> Assemblies => _assemblies;
+
     /// <summary>
     /// Initializes a new instance of <see cref="Types"/>.
     /// </summary>
@@ -66,7 +69,4 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
     /// </summary>
     /// <param name="prefixes">Prefixes to add.</param>
     public static void AddAssemblyPrefixesToExclude(params string[] prefixes) => _assemblyPrefixesToExclude.AddRange(prefixes);
-
-    /// <inheritdoc/>
-    public IEnumerable<Assembly> Assemblies => _assemblies;
 }

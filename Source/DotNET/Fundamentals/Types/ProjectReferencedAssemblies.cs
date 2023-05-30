@@ -22,6 +22,9 @@ public class ProjectReferencedAssemblies : ICanProvideAssembliesForDiscovery
 
     readonly List<Assembly> _assemblies = new();
 
+    /// <inheritdoc/>
+    public IEnumerable<Assembly> Assemblies => _assemblies;
+
     /// <summary>
     /// Initializes a new instance of <see cref="ProjectReferencedAssemblies"/>.
     /// </summary>
@@ -37,7 +40,4 @@ public class ProjectReferencedAssemblies : ICanProvideAssembliesForDiscovery
                             .ToArray();
         _assemblies.AddRange(projectReferencedAssemblies);
     }
-
-    /// <inheritdoc/>
-    public IEnumerable<Assembly> Assemblies => _assemblies;
 }

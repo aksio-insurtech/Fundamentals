@@ -26,9 +26,11 @@ public class Types : ITypes
     /// This will automatically set up <see cref="Types"/> using the <see cref="ProjectReferencedAssemblies"/> and <see cref="PackageReferencedAssemblies"/> providers.
     /// </remarks>
     public Types()
-        : this(new ICanProvideAssembliesForDiscovery[] {
+        : this(new ICanProvideAssembliesForDiscovery[]
+        {
             ProjectReferencedAssemblies.Instance,
-            PackageReferencedAssemblies.Instance })
+            PackageReferencedAssemblies.Instance
+        })
     {
     }
 
