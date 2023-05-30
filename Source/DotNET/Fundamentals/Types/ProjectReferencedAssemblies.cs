@@ -25,6 +25,9 @@ public class ProjectReferencedAssemblies : ICanProvideAssembliesForDiscovery
     /// <inheritdoc/>
     public IEnumerable<Assembly> Assemblies => _assemblies;
 
+    /// <inheritdoc/>
+    public IEnumerable<Type> DefinedTypes { get; }
+
     /// <summary>
     /// Initializes a new instance of <see cref="ProjectReferencedAssemblies"/>.
     /// </summary>
@@ -39,5 +42,6 @@ public class ProjectReferencedAssemblies : ICanProvideAssembliesForDiscovery
                             .Distinct()
                             .ToArray();
         _assemblies.AddRange(projectReferencedAssemblies);
+        DefinedTypes = _assemblies.SelectMany(_ => _.DefinedTypes);
     }
 }
