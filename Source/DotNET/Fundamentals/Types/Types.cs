@@ -42,7 +42,7 @@ public class Types : ITypes
     {
         var assemblies = assemblyProviders.SelectMany(_ => _.Assemblies).Distinct();
         _assemblies.AddRange(assemblies);
-        All = DiscoverAllTypes();
+        All = _assemblies.SelectMany(_ => _.DefinedTypes);
         _contractToImplementorsMap.Feed(All);
     }
 
@@ -86,15 +86,5 @@ public class Types : ITypes
         {
             throw new UnableToResolveTypeByName(fullName);
         }
-    }
-
-    IEnumerable<Type> DiscoverAllTypes()
-    {
-        var types = new List<Type>();
-        foreach (var assembly in _assemblies)
-        {
-            types.AddRange(assembly.DefinedTypes);
-        }
-        return types;
     }
 }

@@ -14,4 +14,9 @@ public interface ICanProvideAssembliesForDiscovery
     /// Gets the assemblies to use for type discovery.
     /// </summary>
     IEnumerable<Assembly> Assemblies { get; }
+
+    /// <summary>
+    /// Gets all the defined types from all the assemblies.
+    /// </summary>
+    IEnumerable<Type> DefinedTypes { get; }
 }

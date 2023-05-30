@@ -45,6 +45,9 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
     /// <inheritdoc/>
     public IEnumerable<Assembly> Assemblies => _assemblies;
 
+    /// <inheritdoc/>
+    public IEnumerable<Type> DefinedTypes { get; }
+
     /// <summary>
     /// Initializes a new instance of <see cref="Types"/>.
     /// </summary>
@@ -62,6 +65,7 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
                             .Distinct()
                             .ToArray();
         _assemblies.AddRange(assemblies);
+        DefinedTypes = _assemblies.SelectMany(_ => _.DefinedTypes);
     }
 
     /// <summary>
