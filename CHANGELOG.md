@@ -1,3 +1,14 @@
+# [v1.1.1] - 2023-6-10 [PR: #0]()
+
+No release notes
+
+# [v1.1.0] - 2023-5-30 [PR: #2](https://github.com/aksio-insurtech/Fundamentals/pull/2)
+
+### Added
+
+- Added `IServiceCollection` extension method for adding type discovery. This configures `ITypes`, `IInstancesOf<>` and `IImplementationsOf<>`.
+
+
 # [v1.0.11] - 2023-5-30 [PR: #1](https://github.com/aksio-insurtech/Fundamentals/pull/1)
 
 ### Added
