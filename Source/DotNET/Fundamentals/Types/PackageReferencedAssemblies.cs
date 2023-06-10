@@ -20,7 +20,7 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
     /// </remarks>
     public static readonly ICanProvideAssembliesForDiscovery Instance = new PackageReferencedAssemblies();
 
-    static readonly List<string> _assemblyPrefixesToExclude = new()
+    readonly List<string> _assemblyPrefixesToExclude = new()
     {
         "System",
         "Microsoft",
@@ -72,5 +72,5 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
     /// Add an assembly prefix to exclude from type discovery.
     /// </summary>
     /// <param name="prefixes">Prefixes to add.</param>
-    public static void AddAssemblyPrefixesToExclude(params string[] prefixes) => _assemblyPrefixesToExclude.AddRange(prefixes);
+    public void AddAssemblyPrefixesToExclude(params string[] prefixes) => _assemblyPrefixesToExclude.AddRange(prefixes);
 }
