@@ -20,28 +20,31 @@ public class ProjectReferencedAssemblies : ICanProvideAssembliesForDiscovery
     /// </remarks>
     public static readonly ProjectReferencedAssemblies Instance = new();
 
+    static readonly object _lock = new();
+
     readonly List<Assembly> _assemblies = new();
 
     /// <inheritdoc/>
     public IEnumerable<Assembly> Assemblies => _assemblies;
 
     /// <inheritdoc/>
-    public IEnumerable<Type> DefinedTypes { get; }
+    public IEnumerable<Type> DefinedTypes { get; private set; } = Enumerable.Empty<Type>();
 
-    /// <summary>
-    /// Initializes a new instance of <see cref="ProjectReferencedAssemblies"/>.
-    /// </summary>
-    public ProjectReferencedAssemblies()
+    /// <inheritdoc/>
+    public void Initialize()
     {
-        var entryAssembly = Assembly.GetEntryAssembly();
-        var dependencyModel = DependencyContext.Load(entryAssembly);
-        var projectReferencedAssemblies = dependencyModel.RuntimeLibraries
-                            .Where(_ => _.Type.Equals("project"))
-                            .Select(_ => AssemblyHelpers.Resolve(_.Name)!)
-                            .Where(_ => _ is not null)
-                            .Distinct()
-                            .ToArray();
-        _assemblies.AddRange(projectReferencedAssemblies);
-        DefinedTypes = _assemblies.SelectMany(_ => _.DefinedTypes);
+        lock (_lock)
+        {
+            var entryAssembly = Assembly.GetEntryAssembly();
+            var dependencyModel = DependencyContext.Load(entryAssembly);
+            var projectReferencedAssemblies = dependencyModel.RuntimeLibraries
+                                .Where(_ => _.Type.Equals("project"))
+                                .Select(_ => AssemblyHelpers.Resolve(_.Name)!)
+                                .Where(_ => _ is not null)
+                                .Distinct()
+                                .ToArray();
+            _assemblies.AddRange(projectReferencedAssemblies);
+            DefinedTypes = _assemblies.SelectMany(_ => _.DefinedTypes);
+        }
     }
 }

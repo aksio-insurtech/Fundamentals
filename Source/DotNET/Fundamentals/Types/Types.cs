@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using System.Reflection;
+using Aksio.Collections;
 
 namespace Aksio.Types;
 
@@ -40,6 +41,7 @@ public class Types : ITypes
     /// <param name="assemblyProviders">Collection of assembly providers.</param>
     public Types(IEnumerable<ICanProvideAssembliesForDiscovery> assemblyProviders)
     {
+        assemblyProviders.ForEach(_ => _.Initialize());
         var assemblies = assemblyProviders.SelectMany(_ => _.Assemblies).Distinct();
         _assemblies.AddRange(assemblies);
         All = _assemblies.SelectMany(_ => _.DefinedTypes);

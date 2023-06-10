@@ -20,6 +20,8 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
     /// </remarks>
     public static readonly PackageReferencedAssemblies Instance = new();
 
+    static readonly object _lock = new();
+
     readonly List<string> _assemblyPrefixesToExclude = new()
     {
         "System",
@@ -42,30 +44,40 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
 
     readonly List<Assembly> _assemblies = new();
 
+    bool _initialized;
+
     /// <inheritdoc/>
     public IEnumerable<Assembly> Assemblies => _assemblies;
 
     /// <inheritdoc/>
-    public IEnumerable<Type> DefinedTypes { get; }
+    public IEnumerable<Type> DefinedTypes { get; private set; } = Enumerable.Empty<Type>();
 
-    /// <summary>
-    /// Initializes a new instance of <see cref="Types"/>.
-    /// </summary>
-    public PackageReferencedAssemblies()
+    /// <inheritdoc/>
+    public void Initialize()
     {
-        var entryAssembly = Assembly.GetEntryAssembly();
-        var dependencyModel = DependencyContext.Load(entryAssembly);
+        lock (_lock)
+        {
+            if (_initialized)
+            {
+                return;
+            }
 
-        var assemblies = dependencyModel.RuntimeLibraries
-                            .Where(_ => _.RuntimeAssemblyGroups.Count > 0 &&
-                                        (_assemblyPrefixesToInclude.Any(asm => _.Name.StartsWith(asm)) ||
-                                        !_assemblyPrefixesToExclude.Any(asm => _.Name.StartsWith(asm))))
-                            .Select(_ => AssemblyHelpers.Resolve(_.Name)!)
-                            .Where(_ => _ is not null)
-                            .Distinct()
-                            .ToArray();
-        _assemblies.AddRange(assemblies);
-        DefinedTypes = _assemblies.SelectMany(_ => _.DefinedTypes);
+            var entryAssembly = Assembly.GetEntryAssembly();
+            var dependencyModel = DependencyContext.Load(entryAssembly);
+
+            var assemblies = dependencyModel.RuntimeLibraries
+                                .Where(_ => _.RuntimeAssemblyGroups.Count > 0 &&
+                                            (_assemblyPrefixesToInclude.Any(asm => _.Name.StartsWith(asm)) ||
+                                            !_assemblyPrefixesToExclude.Any(asm => _.Name.StartsWith(asm))))
+                                .Select(_ => AssemblyHelpers.Resolve(_.Name)!)
+                                .Where(_ => _ is not null)
+                                .Distinct()
+                                .ToArray();
+            _assemblies.AddRange(assemblies);
+            DefinedTypes = _assemblies.SelectMany(_ => _.DefinedTypes);
+
+            _initialized = true;
+        }
     }
 
     /// <summary>

@@ -19,4 +19,9 @@ public interface ICanProvideAssembliesForDiscovery
     /// Gets all the defined types from all the assemblies.
     /// </summary>
     IEnumerable<Type> DefinedTypes { get; }
+
+    /// <summary>
+    /// Initializes the system.
+    /// </summary>
+    void Initialize();
 }
