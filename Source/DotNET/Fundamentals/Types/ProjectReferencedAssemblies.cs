@@ -18,7 +18,7 @@ public class ProjectReferencedAssemblies : ICanProvideAssembliesForDiscovery
     /// Its recommended to use the singleton defined here, rather than building your own instance.
     /// This is due to the performance impact of scanning all assemblies in the application.
     /// </remarks>
-    public static readonly ICanProvideAssembliesForDiscovery Instance = new ProjectReferencedAssemblies();
+    public static readonly ProjectReferencedAssemblies Instance = new();
 
     readonly List<Assembly> _assemblies = new();
 

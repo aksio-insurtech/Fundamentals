@@ -18,7 +18,7 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
     /// Its recommended to use the singleton defined here, rather than building your own instance.
     /// This is due to the performance impact of scanning all assemblies in the application.
     /// </remarks>
-    public static readonly ICanProvideAssembliesForDiscovery Instance = new PackageReferencedAssemblies();
+    public static readonly PackageReferencedAssemblies Instance = new();
 
     readonly List<string> _assemblyPrefixesToExclude = new()
     {
