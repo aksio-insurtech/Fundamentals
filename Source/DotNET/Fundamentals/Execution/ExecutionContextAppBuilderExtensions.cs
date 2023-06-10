@@ -16,6 +16,8 @@ public static class ExecutionContextAppBuilderExtensions
     /// </summary>
     public const string TenantIdHeader = "Tenant-ID";
 
+    static bool _initialized;
+
     /// <summary>
     /// Use execution context for an application.
     /// </summary>
@@ -27,6 +29,12 @@ public static class ExecutionContextAppBuilderExtensions
     /// </remarks>
     public static IApplicationBuilder UseExecutionContext(this IApplicationBuilder app)
     {
+        if (_initialized)
+        {
+            return app;
+        }
+        _initialized = true;
+
         var executionContextManager = app.ApplicationServices.GetRequiredService<IExecutionContextManager>();
         executionContextManager.Establish(ExecutionContextManager.GlobalMicroserviceId);
         app.Use(async (context, next) =>
