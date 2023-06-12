@@ -1,3 +1,10 @@
+# [v1.2.0] - 2023-6-12 [PR: #3](https://github.com/aksio-insurtech/Fundamentals/pull/3)
+
+### Added
+
+- Added a `CompositeAssemblyProvider` that delegates to a collection of `ICanProvideAssembliesForDiscovery`.
+
+
 # [v1.1.5] - 2023-6-10 [PR: #0]()
 
 No release notes
