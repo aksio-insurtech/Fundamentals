@@ -12,7 +12,7 @@ namespace Aksio.Types;
 public class ProjectReferencedAssemblies : ICanProvideAssembliesForDiscovery
 {
     /// <summary>
-    /// Gets the instance of <see cref="PackageReferencedAssemblies"/>.
+    /// Gets the global instance of <see cref="PackageReferencedAssemblies"/>.
     /// </summary>
     /// <remarks>
     /// Its recommended to use the singleton defined here, rather than building your own instance.

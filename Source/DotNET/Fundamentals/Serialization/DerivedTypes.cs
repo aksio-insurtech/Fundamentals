@@ -16,6 +16,15 @@ public class DerivedTypes : IDerivedTypes
 {
     record DerivedTypeAndIdentifier(Type DerivedType, Type TargetType, DerivedTypeId Identifier);
 
+    /// <summary>
+    /// Gets the global instance of <see cref="DerivedTypes"/>.
+    /// </summary>
+    /// <remarks>
+    /// Its recommended to use the singleton defined here, rather than building your own instance.
+    /// This is due to the performance impact of scanning all assemblies in the application.
+    /// </remarks>
+    public static readonly DerivedTypes Instance = new(Aksio.Types.Types.Instance);
+
     readonly IDictionary<Type, IEnumerable<DerivedTypeAndIdentifier>> _targetTypeToDerivedType;
     readonly IDictionary<Type, Type> _derivedTypeToTargetType;
 
