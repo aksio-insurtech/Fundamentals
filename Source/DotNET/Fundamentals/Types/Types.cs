@@ -11,6 +11,15 @@ namespace Aksio.Types;
 /// </summary>
 public class Types : ITypes
 {
+    /// <summary>
+    /// Gets the global instance of <see cref="Types"/>.
+    /// </summary>
+    /// <remarks>
+    /// Its recommended to use the singleton defined here, rather than building your own instance.
+    /// This is due to the performance impact of scanning all assemblies in the application.
+    /// </remarks>
+    public static readonly Types Instance = new();
+
     readonly IContractToImplementorsMap _contractToImplementorsMap = new ContractToImplementorsMap();
     readonly List<Assembly> _assemblies = new();
 
