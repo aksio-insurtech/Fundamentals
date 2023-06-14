@@ -1,3 +1,10 @@
+# [v1.3.0] - 2023-6-14 [PR: #4](https://github.com/aksio-insurtech/Fundamentals/pull/4)
+
+### Added
+
+- Static global instances of `Types` and `DerivedTypes` which is recommended to be used to avoid initializing multiple of these. It is recommended to register these with your IoC.
+
+
 # [v1.2.0] - 2023-6-12 [PR: #3](https://github.com/aksio-insurtech/Fundamentals/pull/3)
 
 ### Added
