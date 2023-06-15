@@ -33,7 +33,6 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
         "WindowsBase",
         "Namotion",
         "Semver",
-        "NJsonSchema",
         "Humanizer"
     };
 

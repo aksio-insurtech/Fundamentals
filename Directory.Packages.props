@@ -7,7 +7,6 @@
 		<PackageVersion Include="Aksio.Defaults.Specs" Version="1.6.10" />
 		<PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
 		<PackageVersion Include="Microsoft.Extensions.DependencyModel" Version="6.0.0" />
-		<PackageVersion Include="NJsonSchema" Version="10.9.0" />
 		<PackageVersion Include="System.IO.FileSystem.Primitives" Version="4.3.0" />
 		<PackageVersion Include="System.Reactive" Version="6.0.0" />
 		<PackageVersion Include="Humanizer" Version="2.14.1" />
