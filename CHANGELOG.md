@@ -1,3 +1,10 @@
+# [v1.3.3] - 2023-6-20 [PR: #6](https://github.com/aksio-insurtech/Fundamentals/pull/6)
+
+### Fixed
+
+- Support for converting `JsonElement` values to desired types.
+
+
 # [v1.3.2] - 2023-6-20 [PR: #5](https://github.com/aksio-insurtech/Fundamentals/pull/5)
 
 ### Fixed
