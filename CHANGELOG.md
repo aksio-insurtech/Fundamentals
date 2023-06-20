@@ -1,3 +1,10 @@
+# [v1.3.2] - 2023-6-20 [PR: #5](https://github.com/aksio-insurtech/Fundamentals/pull/5)
+
+### Fixed
+
+- Support for converting directly from `JsonValue` to a target type in `TypeConversion`.
+
+
 # [v1.3.1] - 2023-6-15 [PR: #0]()
 
 No release notes
