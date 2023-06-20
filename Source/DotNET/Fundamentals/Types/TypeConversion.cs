@@ -3,8 +3,10 @@
 
 using System.Globalization;
 using System.Reflection;
+using System.Text.Json;
 using System.Text.Json.Nodes;
 using Aksio.Concepts;
+using Aksio.Json;
 using Aksio.Reflection;
 
 namespace Aksio.Types;
@@ -27,6 +29,18 @@ public static class TypeConversion
         if (value is null)
         {
             return value!;
+        }
+
+        if (value is JsonElement jsonElement)
+        {
+            try
+            {
+                return jsonElement.Deserialize(type, Globals.JsonSerializerOptions)!;
+            }
+            catch
+            {
+                value = jsonElement.ToString();
+            }
         }
 
         if (value is JsonValue)
