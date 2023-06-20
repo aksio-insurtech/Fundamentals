@@ -2,6 +2,8 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using System.Globalization;
+using System.Reflection;
+using System.Text.Json.Nodes;
 using Aksio.Concepts;
 using Aksio.Reflection;
 
@@ -12,6 +14,8 @@ namespace Aksio.Types;
 /// </summary>
 public static class TypeConversion
 {
+    static readonly MethodInfo _getValueMethod = typeof(JsonValue).GetMethod(nameof(JsonValue.GetValue))!;
+
     /// <summary>
     /// Convert a value to specified type.
     /// </summary>
@@ -23,6 +27,24 @@ public static class TypeConversion
         if (value is null)
         {
             return value!;
+        }
+
+        if (value is JsonValue)
+        {
+            try
+            {
+                return _getValueMethod.MakeGenericMethod(type).Invoke(value, Array.Empty<object>())!;
+            }
+            catch
+            {
+                try
+                {
+                    return System.Convert.ChangeType(value.ToString(), type, CultureInfo.InvariantCulture)!;
+                }
+                catch
+                {
+                }
+            }
         }
 
         var val = new object();
