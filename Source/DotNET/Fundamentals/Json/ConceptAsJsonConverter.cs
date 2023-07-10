@@ -27,33 +27,33 @@ public class ConceptAsJsonConverter<T> : JsonConverter<T>
                 break;
 
             case JsonTokenType.Number:
-                if (conceptValueType == typeof(sbyte))
+                if (conceptValueType == typeof(byte))
+                {
+                    value = reader.GetByte();
+                }
+                else if (conceptValueType == typeof(sbyte))
                 {
                     value = reader.GetSByte();
                 }
-                if (conceptValueType == typeof(short))
+                else if (conceptValueType == typeof(short))
                 {
                     value = reader.GetInt16();
-                }
-                else if (conceptValueType == typeof(int))
-                {
-                    value = reader.GetInt32();
-                }
-                else if (conceptValueType == typeof(long))
-                {
-                    value = reader.GetInt64();
-                }
-                else if (conceptValueType == typeof(byte))
-                {
-                    value = reader.GetByte();
                 }
                 else if (conceptValueType == typeof(ushort))
                 {
                     value = reader.GetUInt16();
                 }
+                else if (conceptValueType == typeof(int))
+                {
+                    value = reader.GetInt32();
+                }
                 else if (conceptValueType == typeof(uint))
                 {
                     value = reader.GetUInt32();
+                }
+                else if (conceptValueType == typeof(long))
+                {
+                    value = reader.GetInt64();
                 }
                 else if (conceptValueType == typeof(ulong))
                 {
@@ -70,6 +70,14 @@ public class ConceptAsJsonConverter<T> : JsonConverter<T>
                 else if (conceptValueType == typeof(decimal))
                 {
                     value = reader.GetDecimal();
+                }
+                else if (conceptValueType == typeof(bool))
+                {
+                    value = reader.GetBoolean();
+                }
+                else if (conceptValueType == typeof(Guid))
+                {
+                    value = reader.GetGuid();
                 }
                 else if (conceptValueType.IsEnum)
                 {
@@ -98,14 +106,72 @@ public class ConceptAsJsonConverter<T> : JsonConverter<T>
     public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
     {
         var actualValue = value?.GetConceptValue();
+        if (actualValue is null) return;
+
         var conceptValueType = typeof(T).GetConceptValueType();
         if (conceptValueType == typeof(DateOnly))
         {
-            writer.WriteStringValue(((DateOnly)actualValue!).ToString("O"));
+            writer.WriteStringValue(((DateOnly)actualValue).ToString("O"));
         }
         else if (conceptValueType == typeof(TimeOnly))
         {
-            writer.WriteStringValue(((TimeOnly)actualValue!).ToString("O"));
+            writer.WriteStringValue(((TimeOnly)actualValue).ToString("O"));
+        }
+        else if (conceptValueType == typeof(byte))
+        {
+            writer.WriteNumberValue((byte)actualValue);
+        }
+        else if (conceptValueType == typeof(sbyte))
+        {
+            writer.WriteNumberValue((sbyte)actualValue);
+        }
+        else if (conceptValueType == typeof(short))
+        {
+            writer.WriteNumberValue((short)actualValue);
+        }
+        else if (conceptValueType == typeof(ushort))
+        {
+            writer.WriteNumberValue((ushort)actualValue);
+        }
+        else if (conceptValueType == typeof(int))
+        {
+            writer.WriteNumberValue((int)actualValue);
+        }
+        else if (conceptValueType == typeof(uint))
+        {
+            writer.WriteNumberValue((uint)actualValue);
+        }
+        else if (conceptValueType == typeof(long))
+        {
+            writer.WriteNumberValue((long)actualValue);
+        }
+        else if (conceptValueType == typeof(ulong))
+        {
+            writer.WriteNumberValue((ulong)actualValue);
+        }
+        else if (conceptValueType == typeof(float))
+        {
+            writer.WriteNumberValue((float)actualValue);
+        }
+        else if (conceptValueType == typeof(double))
+        {
+            writer.WriteNumberValue((double)actualValue);
+        }
+        else if (conceptValueType == typeof(decimal))
+        {
+            writer.WriteNumberValue((decimal)actualValue);
+        }
+        else if (conceptValueType == typeof(bool))
+        {
+            writer.WriteBooleanValue((bool)actualValue);
+        }
+        else if (conceptValueType == typeof(Guid))
+        {
+            writer.WriteStringValue(actualValue.ToString());
+        }
+        else if (conceptValueType.IsEnum)
+        {
+            writer.WriteNumberValue((int)actualValue);
         }
         else
         {
