@@ -1,3 +1,11 @@
+# [v1.3.4] - 2023-7-10 [PR: #7](https://github.com/aksio-insurtech/Fundamentals/pull/7)
+
+### Fixed
+
+- Performance and memory usage related to reflection.
+- Adding `text/html` as content type when serving SPA root files.
+
+
 # [v1.3.3] - 2023-6-20 [PR: #6](https://github.com/aksio-insurtech/Fundamentals/pull/6)
 
 ### Fixed
