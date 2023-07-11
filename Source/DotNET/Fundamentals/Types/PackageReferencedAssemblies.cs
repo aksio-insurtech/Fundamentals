@@ -22,20 +22,6 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
 
     static readonly object _lock = new();
 
-    readonly List<string> _assemblyPrefixesToExclude = new()
-    {
-        "System",
-        "Microsoft",
-        "Newtonsoft",
-        "runtimepack",
-        "mscorlib",
-        "netstandard",
-        "WindowsBase",
-        "Namotion",
-        "Semver",
-        "Humanizer"
-    };
-
     readonly List<string> _assemblyPrefixesToInclude = new()
     {
         "Aksio"
@@ -66,8 +52,7 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
 
             var assemblies = dependencyModel.RuntimeLibraries
                                 .Where(_ => _.RuntimeAssemblyGroups.Count > 0 &&
-                                            (_assemblyPrefixesToInclude.Any(asm => _.Name.StartsWith(asm)) ||
-                                            !_assemblyPrefixesToExclude.Any(asm => _.Name.StartsWith(asm))))
+                                            _assemblyPrefixesToInclude.Any(asm => _.Name.StartsWith(asm)))
                                 .Select(_ => AssemblyHelpers.Resolve(_.Name)!)
                                 .Where(_ => _ is not null)
                                 .Distinct()
@@ -83,5 +68,5 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
     /// Add an assembly prefix to exclude from type discovery.
     /// </summary>
     /// <param name="prefixes">Prefixes to add.</param>
-    public void AddAssemblyPrefixesToExclude(params string[] prefixes) => _assemblyPrefixesToExclude.AddRange(prefixes);
+    public void AddAssemblyPrefixesToInclude(params string[] prefixes) => _assemblyPrefixesToInclude.AddRange(prefixes);
 }
