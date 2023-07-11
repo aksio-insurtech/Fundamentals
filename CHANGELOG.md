@@ -1,3 +1,10 @@
+# [v1.3.5] - 2023-7-11 [PR: #8](https://github.com/aksio-insurtech/Fundamentals/pull/8)
+
+### Fixed
+
+- Seeing problems with opt-out of type discovery. Making it only be an opt-in.
+
+
 # [v1.3.4] - 2023-7-10 [PR: #7](https://github.com/aksio-insurtech/Fundamentals/pull/7)
 
 ### Fixed
