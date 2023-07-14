@@ -1,3 +1,10 @@
+# [v1.3.6] - 2023-7-14 [PR: #9](https://github.com/aksio-insurtech/Fundamentals/pull/9)
+
+### Fixed
+
+- Fixed the `Globals.JsonSerializerOptions` property to use the default `DerivedTypes.Instance` when calling `Configure` the first time its used and the `JsonSerializerOptions` hasn't been configured yet. This means that if you want to have a different provider for derived types, you have to make sure you call the `.Configure()` method with your derived types before the options are used by others.
+
+
 # [v1.3.5] - 2023-7-11 [PR: #8](https://github.com/aksio-insurtech/Fundamentals/pull/8)
 
 ### Fixed
