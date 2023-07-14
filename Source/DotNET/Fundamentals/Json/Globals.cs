@@ -23,7 +23,7 @@ public static class Globals
         {
             if (_jsonSerializerOptions is null)
             {
-                Configure(null!);
+                Configure(DerivedTypes.Instance);
             }
 
             return _jsonSerializerOptions!;
