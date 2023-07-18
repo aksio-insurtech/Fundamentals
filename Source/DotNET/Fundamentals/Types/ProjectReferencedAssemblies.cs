@@ -23,6 +23,7 @@ public class ProjectReferencedAssemblies : ICanProvideAssembliesForDiscovery
     static readonly object _lock = new();
 
     readonly List<Assembly> _assemblies = new();
+    bool _initialized;
 
     /// <inheritdoc/>
     public IEnumerable<Assembly> Assemblies => _assemblies;
@@ -35,6 +36,11 @@ public class ProjectReferencedAssemblies : ICanProvideAssembliesForDiscovery
     {
         lock (_lock)
         {
+            if (_initialized)
+            {
+                return;
+            }
+
             var entryAssembly = Assembly.GetEntryAssembly()!;
             _assemblies.Add(entryAssembly);
             var dependencyModel = DependencyContext.Load(entryAssembly);
@@ -46,6 +52,8 @@ public class ProjectReferencedAssemblies : ICanProvideAssembliesForDiscovery
                                 .ToArray();
             _assemblies.AddRange(projectReferencedAssemblies);
             DefinedTypes = _assemblies.SelectMany(_ => _.DefinedTypes).ToArray();
+
+            _initialized = true;
         }
     }
 }
