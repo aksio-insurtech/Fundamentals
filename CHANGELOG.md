@@ -1,3 +1,10 @@
+# [v1.3.10] - 2023-7-18 [PR: #13](https://github.com/aksio-insurtech/Fundamentals/pull/13)
+
+### Fixed
+
+- Ensure the `ProjectReferencedAssemblies` initialize method does not initialize more than once per process. Any subsequent calls to `Initialize()` will not do anything.
+
+
 # [v1.3.9] - 2023-7-18 [PR: #12](https://github.com/aksio-insurtech/Fundamentals/pull/12)
 
 ### Fixed
