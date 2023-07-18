@@ -35,7 +35,8 @@ public class ProjectReferencedAssemblies : ICanProvideAssembliesForDiscovery
     {
         lock (_lock)
         {
-            var entryAssembly = Assembly.GetEntryAssembly();
+            var entryAssembly = Assembly.GetEntryAssembly()!;
+            _assemblies.Add(entryAssembly);
             var dependencyModel = DependencyContext.Load(entryAssembly);
             var projectReferencedAssemblies = dependencyModel.RuntimeLibraries
                                 .Where(_ => _.Type.Equals("project"))
