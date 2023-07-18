@@ -1,3 +1,11 @@
+# [v1.3.9] - 2023-7-18 [PR: #12](https://github.com/aksio-insurtech/Fundamentals/pull/12)
+
+### Fixed
+
+- Make sure assemblies in `ProjectReferencedAssemblies` are distinct.
+- Make sure we only have distinct types in the `Types`.
+
+
 # [v1.3.8] - 2023-7-18 [PR: #11](https://github.com/aksio-insurtech/Fundamentals/pull/11)
 
 ### Fixed
