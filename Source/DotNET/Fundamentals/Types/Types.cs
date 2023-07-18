@@ -53,7 +53,7 @@ public class Types : ITypes
         assemblyProviders.ForEach(_ => _.Initialize());
         var assemblies = assemblyProviders.SelectMany(_ => _.Assemblies).Distinct();
         _assemblies.AddRange(assemblies);
-        All = _assemblies.SelectMany(_ => _.DefinedTypes).ToArray();
+        All = _assemblies.SelectMany(_ => _.DefinedTypes).Distinct().ToArray();
         _contractToImplementorsMap.Feed(All);
     }
 
