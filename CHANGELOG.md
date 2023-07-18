@@ -1,3 +1,10 @@
+# [v1.3.7] - 2023-7-18 [PR: #10](https://github.com/aksio-insurtech/Fundamentals/pull/10)
+
+### Fixed
+
+- Adding the entry assembly as the first "project referenced" assembly in the `ProjectReferencedAssemblies` provider. As this is the assembly used to discover other project referenced assemblies, it is only natural to include itself.
+
+
 # [v1.3.6] - 2023-7-14 [PR: #9](https://github.com/aksio-insurtech/Fundamentals/pull/9)
 
 ### Fixed
