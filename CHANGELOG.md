@@ -1,3 +1,10 @@
+# [v1.3.8] - 2023-7-18 [PR: #11](https://github.com/aksio-insurtech/Fundamentals/pull/11)
+
+### Fixed
+
+- Improve performance by explicitly doing `.ToArray()` on expensive LINQ queries for assembly and type discovery.
+
+
 # [v1.3.7] - 2023-7-18 [PR: #10](https://github.com/aksio-insurtech/Fundamentals/pull/10)
 
 ### Fixed
