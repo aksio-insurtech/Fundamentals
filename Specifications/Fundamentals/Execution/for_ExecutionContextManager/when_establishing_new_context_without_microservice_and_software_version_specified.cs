@@ -3,7 +3,7 @@
 
 namespace Aksio.Execution.for_ExecutionContextManager;
 
-public class when_establishing_new_context : Specification
+public class when_establishing_new_context_without_microservice_and_software_version_specified : Specification
 {
     ExecutionContextManager manager;
     MicroserviceId microservice_id;
@@ -11,7 +11,7 @@ public class when_establishing_new_context : Specification
     CorrelationId correlation_id;
     SoftwareVersion version;
 
-    public when_establishing_new_context()
+    public when_establishing_new_context_without_microservice_and_software_version_specified()
     {
         // Since the specification runner is using IAsyncLifetime - it will be in a different async context.
         // Use default behavior, since we need to have control over the async context.
@@ -21,7 +21,10 @@ public class when_establishing_new_context : Specification
         correlation_id = Guid.NewGuid().ToString();
         version = new("Some Version", "Sha254523");
 
-        manager.Establish(tenant_id, correlation_id, microservice_id, version);
+        ExecutionContextManager.SetGlobalMicroserviceId(microservice_id);
+        ExecutionContextManager.SetGlobalSoftwareVersion(version);
+
+        manager.Establish(tenant_id, correlation_id);
     }
 
     [Fact] void should_have_the_current_context_with_microservice_id() => manager.Current.MicroserviceId.ShouldEqual(microservice_id);

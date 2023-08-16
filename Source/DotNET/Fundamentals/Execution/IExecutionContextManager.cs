@@ -22,8 +22,9 @@ public interface IExecutionContextManager
     /// Establish an <see cref="ExecutionContext"/> for current call path.
     /// </summary>
     /// <param name="microserviceId">Optional <see cref="MicroserviceId"/> to establish for Falls back to the global if not explicitly used.</param>
+    /// <param name="version">Optional <see cref="SoftwareVersion"/> to establish with. Falls back to the global if not explicitly used. If no global exists, falls back to unspecified.</param>
     /// <returns>Established <see cref="ExecutionContext"/>.</returns>
-    ExecutionContext Establish(MicroserviceId microserviceId);
+    ExecutionContext Establish(MicroserviceId microserviceId, SoftwareVersion? version = default);
 
     /// <summary>
     /// Establish an <see cref="ExecutionContext"/> for current call path.
@@ -31,8 +32,9 @@ public interface IExecutionContextManager
     /// <param name="tenantId"><see cref="TenantId"/> to establish for.</param>
     /// <param name="correlationId"><see cref="CorrelationId"/> to establish for.</param>
     /// <param name="microserviceId">Optional <see cref="MicroserviceId"/> to establish for Falls back to the global if not explicitly used.</param>
+    /// <param name="version">Optional <see cref="SoftwareVersion"/> to establish with. Falls back to the global if not explicitly used. If no global exists, falls back to unspecified.</param>
     /// <returns>Established <see cref="ExecutionContext"/>.</returns>
-    ExecutionContext Establish(TenantId tenantId, CorrelationId correlationId, MicroserviceId? microserviceId = default);
+    ExecutionContext Establish(TenantId tenantId, CorrelationId correlationId, MicroserviceId? microserviceId = default, SoftwareVersion? version = default);
 
     /// <summary>
     /// Creates a temporary and disposable <see cref="ExecutionContextScope"/> for a specific tenant.
