@@ -36,11 +36,6 @@ public class ExecutionContextManager : IExecutionContextManager
     /// </summary>
     public static MicroserviceName GlobalMicroserviceName { get; private set; } = MicroserviceName.Unspecified;
 
-    /// <summary>
-    /// Get the global <see cref="SoftwareVersion"/> for the running process.
-    /// </summary>
-    public static SoftwareVersion GlobalSoftwareVersion { get; private set; } = SoftwareVersion.Unspecified;
-
     /// <inheritdoc/>
     public bool IsInContext => _currentExecutionContext?.Value != default;
 
@@ -94,41 +89,29 @@ public class ExecutionContextManager : IExecutionContextManager
     /// </remarks>
     public static void SetGlobalMicroserviceName(MicroserviceName microserviceName) => GlobalMicroserviceName = microserviceName;
 
-    /// <summary>
-    /// Set the global <see cref="SoftwareVersion"/> for the running process.
-    /// </summary>
-    /// <param name="softwareVersion"><see cref="SoftwareVersion"/> to set.</param>
-    public static void SetGlobalSoftwareVersion(SoftwareVersion softwareVersion) => GlobalSoftwareVersion = softwareVersion;
-
     /// <inheritdoc/>
-    public ExecutionContext Establish(MicroserviceId microserviceId, SoftwareVersion? version = default)
+    public ExecutionContext Establish(MicroserviceId microserviceId)
     {
-        version ??= GlobalSoftwareVersion;
-
         _currentExecutionContext.Value = new ExecutionContext(
             microserviceId,
             TenantId.NotSet,
             CorrelationId.New(),
             string.Empty,
             Guid.Empty,
-            version,
             IsInKernel);
 
         return _currentExecutionContext.Value;
     }
 
     /// <inheritdoc/>
-    public ExecutionContext Establish(TenantId tenantId, CorrelationId correlationId, MicroserviceId? microserviceId = default, SoftwareVersion? version = default)
+    public ExecutionContext Establish(TenantId tenantId, CorrelationId correlationId, MicroserviceId? microserviceId = default)
     {
-        version ??= GlobalSoftwareVersion;
-
         _currentExecutionContext.Value = new ExecutionContext(
             microserviceId ?? GlobalMicroserviceId,
             tenantId,
             correlationId,
             string.Empty,
             Guid.Empty,
-            version,
             IsInKernel);
 
         return _currentExecutionContext.Value;

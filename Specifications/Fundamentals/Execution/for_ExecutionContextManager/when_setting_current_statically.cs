@@ -5,7 +5,7 @@ namespace Aksio.Execution.for_ExecutionContextManager;
 
 public class when_setting_current_statically : Specification
 {
-    ExecutionContext new_context = new(Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), Guid.NewGuid(), SoftwareVersion.Unspecified);
+    ExecutionContext new_context = new(Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), Guid.NewGuid());
 
     public when_setting_current_statically()
     {
