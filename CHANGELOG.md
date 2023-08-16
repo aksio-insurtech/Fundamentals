@@ -1,3 +1,10 @@
+# [v1.4.0] - 2023-8-16 [PR: #20](https://github.com/aksio-insurtech/Fundamentals/pull/20)
+
+### Added
+
+- ExecutionContext now holds software version.
+
+
 # [v1.3.10] - 2023-7-18 [PR: #13](https://github.com/aksio-insurtech/Fundamentals/pull/13)
 
 ### Fixed
