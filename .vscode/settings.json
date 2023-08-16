@@ -6,5 +6,6 @@
         "netstandard",
         "Newtonsoft",
         "runtimepack"
-    ]
+    ],
+    "dotnet.defaultSolution": "Fundamentals.sln"
 }
