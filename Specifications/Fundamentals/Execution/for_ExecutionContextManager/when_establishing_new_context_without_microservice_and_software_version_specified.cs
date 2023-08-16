@@ -9,7 +9,6 @@ public class when_establishing_new_context_without_microservice_and_software_ver
     MicroserviceId microservice_id;
     TenantId tenant_id;
     CorrelationId correlation_id;
-    SoftwareVersion version;
 
     public when_establishing_new_context_without_microservice_and_software_version_specified()
     {
@@ -19,10 +18,8 @@ public class when_establishing_new_context_without_microservice_and_software_ver
         microservice_id = Guid.NewGuid();
         tenant_id = Guid.NewGuid();
         correlation_id = Guid.NewGuid().ToString();
-        version = new("Some Version", "Sha254523");
 
         ExecutionContextManager.SetGlobalMicroserviceId(microservice_id);
-        ExecutionContextManager.SetGlobalSoftwareVersion(version);
 
         manager.Establish(tenant_id, correlation_id);
     }
@@ -30,5 +27,4 @@ public class when_establishing_new_context_without_microservice_and_software_ver
     [Fact] void should_have_the_current_context_with_microservice_id() => manager.Current.MicroserviceId.ShouldEqual(microservice_id);
     [Fact] void should_have_the_current_context_with_tenant_id() => manager.Current.TenantId.ShouldEqual(tenant_id);
     [Fact] void should_have_the_current_context_with_correlation_id() => manager.Current.CorrelationId.ShouldEqual(correlation_id);
-    [Fact] void should_have_the_current_context_with_version() => manager.Current.Version.ShouldEqual(version);
 }
