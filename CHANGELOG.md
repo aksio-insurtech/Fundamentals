@@ -1,3 +1,10 @@
+# [v1.4.1] - 2023-8-16 [PR: #21](https://github.com/aksio-insurtech/Fundamentals/pull/21)
+
+### Removed
+
+- Disregard the `SoftwareVersion` introduced in v1.4.0 - that was a mistake. This removes it again.
+
+
 # [v1.4.0] - 2023-8-16 [PR: #20](https://github.com/aksio-insurtech/Fundamentals/pull/20)
 
 ### Added
