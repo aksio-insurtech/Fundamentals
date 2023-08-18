@@ -96,8 +96,6 @@ public class ExecutionContextManager : IExecutionContextManager
             microserviceId,
             TenantId.NotSet,
             CorrelationId.New(),
-            string.Empty,
-            Guid.Empty,
             IsInKernel);
 
         return _currentExecutionContext.Value;
@@ -110,8 +108,6 @@ public class ExecutionContextManager : IExecutionContextManager
             microserviceId ?? GlobalMicroserviceId,
             tenantId,
             correlationId,
-            string.Empty,
-            Guid.Empty,
             IsInKernel);
 
         return _currentExecutionContext.Value;
