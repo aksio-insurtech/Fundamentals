@@ -1,3 +1,10 @@
+# [v1.4.2] - 2023-8-18 [PR: #22](https://github.com/aksio-insurtech/Fundamentals/pull/22)
+
+### Removed
+
+- Removing unused `CausationId` and `CausedBy` - not bumping minor or major since they're not used for anything.
+
+
 # [v1.4.1] - 2023-8-16 [PR: #21](https://github.com/aksio-insurtech/Fundamentals/pull/21)
 
 ### Removed
