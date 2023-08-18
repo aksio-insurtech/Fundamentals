@@ -9,13 +9,9 @@ namespace Aksio.Execution;
 /// <param name="MicroserviceId">The <see cref="MicroserviceId"/>.</param>
 /// <param name="TenantId">The <see cref="TenantId"/>.</param>
 /// <param name="CorrelationId">The <see cref="CorrelationId"/>.</param>
-/// <param name="CausationId">The <see cref="CausationId"/>.</param>
-/// <param name="CausedBy">The person or system that is the cause.</param>
 /// <param name="IsInKernel">Whether or not we're running inside the kernel. Defaults to false.</param>
 public record ExecutionContext(
     MicroserviceId MicroserviceId,
     TenantId TenantId,
     CorrelationId CorrelationId,
-    CausationId CausationId,
-    CausedBy CausedBy,
     bool IsInKernel = false);
