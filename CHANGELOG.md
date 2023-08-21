@@ -1,3 +1,10 @@
+# [v1.5.0] - 2023-8-21 [PR: #23](https://github.com/aksio-insurtech/Fundamentals/pull/23)
+
+### Fixed
+
+- Export the `Fields` type in JS. Making it easier to access information about types.
+
+
 # [v1.4.2] - 2023-8-18 [PR: #22](https://github.com/aksio-insurtech/Fundamentals/pull/22)
 
 ### Removed
