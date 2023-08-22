@@ -1,3 +1,11 @@
+# [v1.5.1] - 2023-8-22 [PR: #24](https://github.com/aksio-insurtech/Fundamentals/pull/24)
+
+### Fixed
+
+- Export `Field` type in JavaScript fundamentals.
+- Export `DerivedType` type in JavaScript fundamentals.
+
+
 # [v1.5.0] - 2023-8-21 [PR: #23](https://github.com/aksio-insurtech/Fundamentals/pull/23)
 
 ### Fixed
