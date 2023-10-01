@@ -1,3 +1,10 @@
+# [v1.5.2] - 2023-10-1 [PR: #25](https://github.com/aksio-insurtech/Fundamentals/pull/25)
+
+### Fixed
+
+- Fixing so that the package assembly provider ignores the project referenced assemblies. This was that caused type duplication when used in combination with the `ProjectReferencedAssemblies` in a composition using for instance the `CompositeAssemblyProvider`.
+
+
 # [v1.5.1] - 2023-8-22 [PR: #24](https://github.com/aksio-insurtech/Fundamentals/pull/24)
 
 ### Fixed
