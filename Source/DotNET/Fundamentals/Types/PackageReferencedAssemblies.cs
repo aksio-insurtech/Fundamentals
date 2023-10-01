@@ -51,7 +51,8 @@ public class PackageReferencedAssemblies : ICanProvideAssembliesForDiscovery
             var dependencyModel = DependencyContext.Load(entryAssembly);
 
             var assemblies = dependencyModel.RuntimeLibraries
-                                .Where(_ => _.RuntimeAssemblyGroups.Count > 0 &&
+                                .Where(_ => !_.Type.Equals("project") &&
+                                            _.RuntimeAssemblyGroups.Count > 0 &&
                                             _assemblyPrefixesToInclude.Any(asm => _.Name.StartsWith(asm)))
                                 .Select(_ => AssemblyHelpers.Resolve(_.Name)!)
                                 .Where(_ => _ is not null)
