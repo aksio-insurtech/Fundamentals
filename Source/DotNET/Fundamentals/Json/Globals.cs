@@ -51,6 +51,8 @@ public static class Globals
                 new ConceptAsJsonConverterFactory(),
                 new DateOnlyJsonConverter(),
                 new TimeOnlyJsonConverter(),
+                new TypeJsonConverter(),
+                new UriJsonConverter(),
                 new EnumerableModelWithIdToConceptOrPrimitiveEnumerableConverterFactory()
             }
         };
