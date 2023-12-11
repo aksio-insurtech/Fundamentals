@@ -1,3 +1,10 @@
+# [v1.6.0] - 2023-12-11 [PR: #27](https://github.com/aksio-insurtech/Fundamentals/pull/27)
+
+### Added
+
+- Added JSON converter for `Type`.
+- Added JSON converter for `Uri`.
+
 # [v1.5.2] - 2023-10-1 [PR: #25](https://github.com/aksio-insurtech/Fundamentals/pull/25)
 
 ### Fixed
