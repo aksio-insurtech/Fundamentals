@@ -43,7 +43,7 @@ public static class Globals
 
         _jsonSerializerOptions = new()
         {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNamingPolicy = AcronymFriendlyJsonCamelCaseNamingPolicy.Instance,
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
             Converters =
             {
