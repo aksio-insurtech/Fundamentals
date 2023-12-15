@@ -1,3 +1,11 @@
+# [v1.6.1] - 2023-12-15 [PR: #28](https://github.com/aksio-insurtech/Fundamentals/pull/28)
+
+## Summary
+
+Create a ToCamelCase implementation that is more friendly towards acronyms.  This is a trade-off between determining it is an acronym and ease of use / performance.  There is no register or dictionary of acronyms, instead if the first two characters of the name are upper-case we will not change the name and will just return as is.
+
+A JsonNamingPolicy implementation is created that uses the ToCamelCase extension method.
+
 # [v1.6.0] - 2023-12-11 [PR: #27](https://github.com/aksio-insurtech/Fundamentals/pull/27)
 
 ### Added
