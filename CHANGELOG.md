@@ -1,3 +1,7 @@
+# [v1.6.2] - 2024-2-28 [PR: #0]()
+
+VerisonBump to test new npm token
+
 # [v1.6.1] - 2023-12-15 [PR: #28](https://github.com/aksio-insurtech/Fundamentals/pull/28)
 
 ## Summary
